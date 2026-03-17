@@ -1,18 +1,17 @@
 import { useState } from "react";
 import Header  from "./components/Header";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Country from "./pages/Country";
 function App() {
-    const [dark, setDark] = useState(false);
-    function changeTheme(boolean){
-        setDark(boolean)
-        if (boolean){
-            document.documentElement.classList.add("dark")
-        }else(
-            document.documentElement.classList.remove("dark")
-        )
-    }
+
     return (
         <>
-            <Header />
+            <Routes >
+                <Route path="/country/:name" element={<Country />} />
+                <Route path="/" element={<Home />} />
+
+            </Routes>
         </>
     );
 }
