@@ -8,8 +8,8 @@ const Header = () => {
         } else document.documentElement.classList.remove("dark");
     }
     return (
-        <header className="py-6 px-19 bg-el flex items-center justify-between shadow">
-            <h1 className="text-text text-2xl font-extrabold">
+        <header className=" py-6 px-4  sm:px-19 bg-el flex items-center justify-between shadow">
+            <h1 className="text-text sm:text-2xl font-extrabold">
                 Where in the world?
             </h1>
             <button
