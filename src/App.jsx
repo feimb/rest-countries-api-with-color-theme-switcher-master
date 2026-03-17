@@ -1,11 +1,18 @@
 import { useState } from "react";
-
+import Header  from "./components/Header";
 function App() {
-    const [count, setCount] = useState(0);
-
+    const [dark, setDark] = useState(false);
+    function changeTheme(boolean){
+        setDark(boolean)
+        if (boolean){
+            document.documentElement.classList.add("dark")
+        }else(
+            document.documentElement.classList.remove("dark")
+        )
+    }
     return (
         <>
-            <div className="bg-blue-900 text-white p-10">Test Tailwind</div>
+            <Header />
         </>
     );
 }
