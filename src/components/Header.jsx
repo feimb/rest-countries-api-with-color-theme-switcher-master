@@ -1,12 +1,8 @@
 import { useState } from "react";
+import { useDark } from "../hooks/useDark";
 const Header = () => {
-    const [dark, setDark] = useState(false);
-    function changeTheme(boolean) {
-        setDark(boolean);
-        if (boolean) {
-            document.documentElement.classList.add("dark");
-        } else document.documentElement.classList.remove("dark");
-    }
+    const [dark, setDark] = useDark();
+
     return (
         <header className=" py-6 px-4  sm:px-19 bg-el flex items-center justify-between shadow">
             <h1 className="text-text sm:text-2xl font-extrabold">
@@ -14,7 +10,7 @@ const Header = () => {
             </h1>
             <button
                 className=" text-text flex items-center gap-2 cursor-pointer   px-1 py-0.5 border rounded-lg border-transparent hover:border-text-secondary"
-                onClick={() => changeTheme(!dark)}
+                onClick={() => setDark((prev) => !prev)}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
