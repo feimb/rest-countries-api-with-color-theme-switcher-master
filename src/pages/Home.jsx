@@ -1,11 +1,14 @@
-import Header from "../components/Header";
-
+import MainLayout from "../components/layout/MainLayout";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
-    <>
-        <Header />
-        <main>
-
-        </main>
-    </>
+    const navigate = useNavigate();
+    return(
+        <MainLayout>
+            <p className="">uwu</p>
+            <button
+                onClick={() => navigate("/country/argentina")}
+            >dajdld</button>
+        </MainLayout>
+    )
 };
 export default Home;

@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
-import Header from "../components/Header";
-
+import MainLayout from "../components/layout/MainLayout";
+import { useParams } from "react-router-dom";
 const Country = () => {
-    <>
-    
-        <Header />
-        <main>
-            
-        </main> 
-    </>
+    const { name } = useParams();
+
+    return (
+        <MainLayout>
+            <p className="">uwu</p>
+        </MainLayout>
+    );
 };
 export default Country;
