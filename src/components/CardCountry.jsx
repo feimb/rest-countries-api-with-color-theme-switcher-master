@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const CardCountry = ({ src, alt, name, population, region, capital }) => {
     const categories = ["Population", "Region", "Capital"];
     const categoriesContent = {
@@ -5,8 +6,10 @@ const CardCountry = ({ src, alt, name, population, region, capital }) => {
         Region: region,
         Capital: capital,
     };
+    
+    const baseUrl = "https://restcountries.com/v3.1/name"
     return (
-        <div className="bg-el w-[266px] shadow-md rounded-lg ">
+        <Link className="bg-el w-[266px] shadow-md rounded-lg" to={`/${name}`}>
             <img
                 src={src}
                 alt={alt}
@@ -25,7 +28,7 @@ const CardCountry = ({ src, alt, name, population, region, capital }) => {
                     );
                 })}
             </footer>
-        </div>
+        </Link>
     );
 };
 export default CardCountry;

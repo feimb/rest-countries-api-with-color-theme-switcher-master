@@ -11,3 +11,7 @@ export const getAllCountry = async () => {
 
   return res.data;
 };
+export const getCountryByName = async (path) => {
+  const res = await axios.get(`${baseUrl}/name${path}`)
+  return res.data
+}

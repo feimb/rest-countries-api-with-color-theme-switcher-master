@@ -14,7 +14,7 @@ export default function Dropdown() {
     ];
 
     return (
-        <div className="relative">
+        <div className="relative max-w-max mt-10 md:mt-0 ">
             <button
                 onClick={() => setOpen(!open)}
                 className="w-full bg-el text-text font-light px-4 py-5 rounded-md flex justify-between items-center shadow-sm cursor-pointer gap-4"

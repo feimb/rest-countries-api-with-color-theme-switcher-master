@@ -1,11 +1,9 @@
 import MainLayout from "../components/layout/MainLayout";
-import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import CardCountry from "../components/CardCountry";
 import { getAllCountry } from "../api/countries";
 import { useState, useEffect } from "react";
 const Home = () => {
-    const navigate = useNavigate();
     const [countries, setCountries] = useState([]);
     useEffect(() => {
         const fetchContries = async () => {
@@ -29,7 +27,7 @@ const Home = () => {
                     name="Gearmany"
                     region="Europa"
                     capital="Bearlin"
-                    population="81,770,900"
+                    population="81,770,900" 
                 /> */}
                 {countries.map((country) => {
                     return (

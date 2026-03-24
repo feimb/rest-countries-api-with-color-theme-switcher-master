@@ -1,8 +1,8 @@
 import DropDawn from "./subComponents/DropDawn";
 const NavBar = () => {
     return (
-        <nav className="flex align-items-center justify-between gap-4  ">
-            <div className="w-full max-w-md px-8 py-5 bg-el shadow-md flex items-center gap-4 rounded-md ">
+        <nav className=" block md:flex align-items-center justify-between">
+            <div className="w-full md:max-w-md px-8 py-5 bg-el shadow-md flex items-center gap-4 rounded-md ">
                 <label htmlFor="searchBar">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
