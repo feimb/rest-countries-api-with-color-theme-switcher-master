@@ -35,6 +35,7 @@ const Home = () => {
                     return (
                         <CardCountry
                             src={country.flags.png}
+                            alt={country.flags.alt}
                             name={country.name.common}
                             region={country.region}
                             capital={country.capital?.[0] || "No capital"}
