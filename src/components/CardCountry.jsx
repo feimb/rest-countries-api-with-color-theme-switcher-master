@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-const CardCountry = ({ src, alt, name, population, region, capital }) => {
+const CardCountry = ({ src, alt, name, population, region, capital, link }) => {
     const categories = ["Population", "Region", "Capital"];
     const categoriesContent = {
         Population: population,
@@ -9,7 +9,7 @@ const CardCountry = ({ src, alt, name, population, region, capital }) => {
     
     const baseUrl = "https://restcountries.com/v3.1/name"
     return (
-        <Link className="bg-el w-[266px] shadow-md rounded-lg" to={`/${name}`}>
+        <Link className="bg-el w-[266px] shadow-md rounded-lg" to={`/${link}`}>
             <img
                 src={src}
                 alt={alt}

@@ -38,7 +38,8 @@ const Home = () => {
                             region={country.region}
                             capital={country.capital?.[0] || "No capital"}
                             population={country.population}
-                            key={country.cca3}
+                            link={country.cca2}
+                            key={country.cca2}
                         />
                     );
                 })}
