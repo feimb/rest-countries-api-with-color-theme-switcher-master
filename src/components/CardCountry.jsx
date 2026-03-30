@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import InfoText from "./subComponents/InfoText";
 const CardCountry = ({ src, alt, name, population, region, capital, link }) => {
     const categories = ["Population", "Region", "Capital"];
     const categoriesContent = {
@@ -6,8 +7,8 @@ const CardCountry = ({ src, alt, name, population, region, capital, link }) => {
         Region: region,
         Capital: capital,
     };
-    
-    const baseUrl = "https://restcountries.com/v3.1/name"
+
+    const baseUrl = "https://restcountries.com/v3.1/name";
     return (
         <Link className="bg-el w-[266px] shadow-md rounded-lg" to={`/${link}`}>
             <img
@@ -19,12 +20,10 @@ const CardCountry = ({ src, alt, name, population, region, capital, link }) => {
                 <h2 className="text-lg font-bold mb-3">{name}</h2>
                 {categories.map((cat) => {
                     return (
-                        <p className="text-text">
-                            <span className="text-text font-normal">
-                                {cat}:{" "}
-                            </span>
-                            {categoriesContent[cat]}
-                        </p>
+                        <InfoText
+                            label={cat}
+                            content={categoriesContent[cat]}
+                        />
                     );
                 })}
             </footer>
