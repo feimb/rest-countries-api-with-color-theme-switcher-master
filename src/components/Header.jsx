@@ -10,7 +10,7 @@ const Header = () => {
             </h1>
             <button
                 className=" text-text flex items-center gap-2 cursor-pointer   px-1 py-0.5 border rounded-lg border-transparent hover:border-text-secondary"
-                onClick={() => setDark((prev) => !prev)}
+                onClick={() => setDark((state) => !state)}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

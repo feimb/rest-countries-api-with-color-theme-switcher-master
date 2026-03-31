@@ -34,15 +34,39 @@ const Country = () => {
     }, [code]);
 
     return (
-        <MainLayout>
-            <Link to={"/"}>Back</Link>
+        <MainLayout py="py-16">
+            <Link
+                to={"/"}
+                className="px-8 py-2 bg-el max-w-min rounded shadow-2xl text-text flex items-start gap-3 hover:opacity-80 transition"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-move-left-icon lucide-move-left"
+                >
+                    <path d="M6 8L2 12L6 16" />
+                    <path d="M2 12H22" />
+                </svg>
+                Back
+            </Link>
             {country && (
-                <div>
-                    <img src={country.flags.png} alt={country.flags.alt} />
-                    <div>
-                        <h3>{country.name.common}</h3>
-                        <div className="font-extralight text-sm">
-                            <div>
+                <div className="mt-10 flex flex-col lg:flex-row gap-12 items-start ">
+                    <img
+                        src={country.flags.svg}
+                        alt={country.flags.alt}
+                        className="w-full max-w-lg shadow-lg"
+                    />
+                    <div className="flex-1 p-6">
+                        <h3 className="text-3xl font-bold mb-6">{country.name.common}</h3>
+                        <div className=" font-extralight text-sm flex">
+                            <div>   
                                 {[
                                     {
                                         label: "Native Name",
@@ -81,12 +105,18 @@ const Country = () => {
                                     },
                                     {
                                         label: "Currencies",
-                                        content: Object.values(country.currencies).map((cur)=> cur.name).join(", ")
+                                        content: Object.values(
+                                            country.currencies,
+                                        )
+                                            .map((cur) => cur.name)
+                                            .join(", "),
                                     },
                                     {
                                         label: "Languages",
-                                        content: Object.values(country.languages).join(", ")
-                                    }
+                                        content: Object.values(
+                                            country.languages,
+                                        ).join(", "),
+                                    },
                                 ].map((item) => (
                                     <InfoText
                                         label={item.label}
