@@ -32,7 +32,9 @@ const Country = () => {
         }
         fetchCountry();
     }, [code]);
-
+    const borders = country?.borders || [];
+    console.log(country);
+    console.log(country?.borders);
     return (
         <MainLayout py="py-16">
             <Link
@@ -63,10 +65,12 @@ const Country = () => {
                         alt={country.flags.alt}
                         className="w-full max-w-lg shadow-lg"
                     />
-                    <div className="flex-1 p-6">
-                        <h3 className="text-3xl font-bold mb-6">{country.name.common}</h3>
-                        <div className=" font-extralight text-sm flex">
-                            <div>   
+                    <div className="flex-1 p-6 ">
+                        <h3 className="text-3xl font-bold mb-6">
+                            {country.name.common}
+                        </h3>
+                        <div className="md:flex font-extralight text-sm  items-baseline gap-20">
+                            <div className="">
                                 {[
                                     {
                                         label: "Native Name",
@@ -94,10 +98,11 @@ const Country = () => {
                                     <InfoText
                                         label={item.label}
                                         content={item.content}
+                                        style={"mt-2"}
                                     />
                                 ))}
                             </div>
-                            <div>
+                            <div className="mt-10 md:mt-0">
                                 {[
                                     {
                                         label: "Top Level Domain",
@@ -121,15 +126,25 @@ const Country = () => {
                                     <InfoText
                                         label={item.label}
                                         content={item.content}
+                                        style={"mt-2"}
                                     />
                                 ))}
                             </div>
                         </div>
 
-                        <footer>
-                            <p>Border Countries:</p>
-                            <div>
-                                <Link></Link>
+                        <footer className="mt-8  md:flex gap-2 items-baseline">
+                            <p className="">Border Countries:</p>
+                            <div className="mt-4 md:mt-0 flex gap-2  flex-wrap">
+                                {borders.length > 0 ? (
+                                    borders.map((code) => (
+                                        <Link className="bg-el px-4 py-2 text-text font-light shadow rounded-xs" 
+                                        to={`/${code}`}>
+                                            {code}
+                                        </Link>
+                                    ))
+                                ) : (
+                                    <span>No border countries</span>
+                                )}
                             </div>
                         </footer>
                     </div>

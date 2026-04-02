@@ -1,6 +1,6 @@
-const InfoText = ({ label, content }) => {
+const InfoText = ({ label, content, style }) => {
     return (
-        <p className="text-text">
+        <p className={"text-text " + style}>
             <span className="text-text font-normal">{`${label}: `}</span>
             {content}
         </p>
