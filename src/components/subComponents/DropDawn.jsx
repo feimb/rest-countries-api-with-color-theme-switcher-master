@@ -1,8 +1,23 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
-export default function Dropdown() {
+export default function Dropdown({setRegion}) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("Filter by Region");
+
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     const options = [
         "All Regions",
@@ -12,9 +27,17 @@ export default function Dropdown() {
         "Europe",
         "Oceania",
     ];
+    const setOptions = {
+        "All Regions": "",
+        "Africa": "Africa",
+        "America": "Americas",
+        "Asia": "Asia",
+        "Europe": "Europe",
+        "Oceania": "Oceania" ,
 
+    }
     return (
-        <div className="relative max-w-max mt-10 md:mt-0 ">
+        <div ref={dropdownRef} className="relative max-w-max mt-10 md:mt-0 ">
             <button
                 onClick={() => setOpen(!open)}
                 className="w-full bg-el text-text font-light px-4 py-5 rounded-md flex justify-between items-center shadow-sm cursor-pointer gap-4"
@@ -44,6 +67,7 @@ export default function Dropdown() {
                             onClick={() => {
                                 setValue(opt);
                                 setOpen(false);
+                                setRegion(setOptions[opt])
                             }}
                             className="px-4 py-2 hover:brightness-90 dark:hover:backdrop-brightness-125 cursor-pointer"
                         >

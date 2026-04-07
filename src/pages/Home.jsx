@@ -5,6 +5,8 @@ import { getAllCountry } from "../api/countries";
 import { useState, useEffect } from "react";
 const Home = () => {
     const [countries, setCountries] = useState([]);
+    const [search, setSearch] = useState("");
+    const [region, setRegion] = useState("");
     useEffect(() => {
         const fetchContries = async () => {
             try {
@@ -17,10 +19,16 @@ const Home = () => {
         fetchContries();
     }, []);
 
-    console.log(countries);
+    const filterCountries = countries.filter((c) => {
+        const texto = search.toLowerCase()
+        return (
+        
+        (region === "" || c.region === region ) && c.name.common.toLowerCase().includes(texto)
+    ) 
+    });
     return (
         <MainLayout>
-            <NavBar />
+            <NavBar setSearch={setSearch} setRegion={setRegion}/>
             <section className=" pt-7 grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-18 place-items-center">
                 {/* <CardCountry
                     src="https://flagcdn.com/w320/de.png"
@@ -29,7 +37,7 @@ const Home = () => {
                     capital="Bearlin"
                     population="81,770,900" 
                 /> */}
-                {countries.map((country) => {
+                {filterCountries.map((country) => {
                     return (
                         <CardCountry
                             src={country.flags.png}

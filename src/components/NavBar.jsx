@@ -1,5 +1,5 @@
 import DropDawn from "./subComponents/DropDawn";
-const NavBar = () => {
+const NavBar = ({setSearch, setRegion}) => {
     return (
         <nav className=" block md:flex align-items-center justify-between">
             <div className="w-full md:max-w-md px-8 py-5 bg-el shadow-md flex items-center gap-4 rounded-md ">
@@ -27,6 +27,7 @@ const NavBar = () => {
                     id="searchBar"
                     autocomplete="off"
                     placeholder="Search for Country..."
+                    onChange={(e) => setSearch(e.target.value)}
                 />
             </div>
             {/* <div className="relative">
@@ -61,7 +62,7 @@ const NavBar = () => {
                     </svg>
                 </div>
             </div> */}
-            <DropDawn />
+            <DropDawn setRegion={setRegion}/>
         </nav>
     );
 };

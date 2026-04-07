@@ -24,7 +24,9 @@ const Country = () => {
         async function fetchCountry() {
             try {
                 const data = await getCountryByCode(code);
+
                 setCountry(data[0]);
+
                 console.log(data[0]);
             } catch (err) {
                 console.error(err);
@@ -58,7 +60,20 @@ const Country = () => {
                 </svg>
                 Back
             </Link>
-            {country && (
+            {!country ? (
+                <div className="animate-pulse flex flex-col lg:flex-row gap-12">
+                    {/* Imagen skeleton */}
+                    <div className="w-full max-w-lg h-64 bg-gray-700 rounded"></div>
+
+                    {/* Texto skeleton */}
+                    <div className="flex-1 space-y-4">
+                        <div className="h-6 bg-gray-700 rounded w-1/2"></div>
+                        <div className="h-4 bg-gray-700 rounded w-1/3"></div>
+                        <div className="h-4 bg-gray-700 rounded w-2/3"></div>
+                        <div className="h-4 bg-gray-700 rounded w-1/4"></div>
+                    </div>
+                </div>
+            ) : (
                 <div className="mt-10 flex flex-col lg:flex-row gap-12 items-start ">
                     <img
                         src={country.flags.svg}
@@ -137,8 +152,10 @@ const Country = () => {
                             <div className="mt-4 md:mt-0 flex gap-2  flex-wrap">
                                 {borders.length > 0 ? (
                                     borders.map((code) => (
-                                        <Link className="bg-el px-4 py-2 text-text font-light shadow rounded-xs" 
-                                        to={`/${code}`}>
+                                        <Link
+                                            className="bg-el px-4 py-2 text-text font-light shadow rounded-xs"
+                                            to={`/${code}`}
+                                        >
                                             {code}
                                         </Link>
                                     ))
