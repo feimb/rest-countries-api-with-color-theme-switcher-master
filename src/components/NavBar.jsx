@@ -1,5 +1,5 @@
 import DropDawn from "./subComponents/DropDawn";
-const NavBar = ({setSearch, setRegion}) => {
+const NavBar = ({setSearch, setRegion, value}) => {
     return (
         <nav className=" block md:flex align-items-center justify-between">
             <div className="w-full md:max-w-md px-8 py-5 bg-el shadow-md flex items-center gap-4 rounded-md ">
@@ -28,6 +28,7 @@ const NavBar = ({setSearch, setRegion}) => {
                     autocomplete="off"
                     placeholder="Search for Country..."
                     onChange={(e) => setSearch(e.target.value)}
+                    value={value}
                 />
             </div>
             {/* <div className="relative">
