@@ -10,7 +10,12 @@ const CardCountry = ({ src, alt, name, population, region, capital, link }) => {
 
     const baseUrl = "https://restcountries.com/v3.1/name";
     return (
-        <Link className="bg-el w-[266px] shadow-md rounded-lg" to={`/${link}`}>
+        <Link
+            className="bg-el w-[266px] shadow-md rounded-lg transition-all duration-300 ease-in-out
+   hover:shadow-xl hover:scale-[1.1]
+  cursor-pointer   "
+            to={`/${link}`}
+        >
             <img
                 src={src}
                 alt={alt}
